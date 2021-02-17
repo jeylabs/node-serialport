@@ -9,8 +9,12 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
+        config:
+          - { os: macos-latest, arch: x64 }
+          - { os: ubuntu-latest, arch: x64 }
+          - { os: windows-latest, arch: x64 }
+          - { os: windows-latest, arch: ia32 }
         node-version: [14.x]
-        os: [ubuntu-latest, windows-latest, macos-latest]
     steps:
     - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
